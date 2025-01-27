@@ -1,0 +1,10 @@
+{
+    "models": [
+        "llama3.2:1b",
+        "llama-guard3:1b"
+    ],
+    "paths": [
+        "/api/chat",
+        "/v1/chat/completions"
+    ]
+}
