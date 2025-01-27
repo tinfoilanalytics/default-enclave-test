@@ -1,11 +1,34 @@
 # default-enclave-test
 
-This is a test of the default enclave.
+This repository serves as both:
 
-## Usage
+- Tinfoil's default inference enclave running CPU-only models using Ollama inference server, on AWS Nitro Enclaves
+- A template for running your choice of CPU-only models on Nitro Enclaves
 
-To modify the loaded models, edit the `config.json` file, and add or remove models from `models`.
+## Default Configuration
 
-Currently, only models available on [Ollama](https://ollama.com/library) are supported.
+The default enclave runs the following models:
 
-To modify the paths that are exposed, edit the `config.json` file, and add or remove paths from `paths`.
+- `llama3.2:1b`
+- `llama-guard3:1b`
+- `qwen2.5-coder:0.5b`
+- `nomic-embed-text`
+
+And exposes the following endpoints for inference:
+
+- `/api/chat`
+- `/v1/chat/completions`
+- `/api/generate`
+- `/api/embed`
+
+As shown in `config.json`.
+
+## Custom Configuration
+
+If you want to run a different set of models and/or expose a different set of endpoints:
+
+1. Click "Use this template" to create a new repository
+2. Edit `config.json` to customize:
+    - `models`: Any model from Ollama's [library](https://ollama.com/library)
+    - `paths`: API endpoints from Ollama's [API documentation](https://ollama.ai/docs/api) you want to expose
+3. Create a release tag (e.g. `v0.0.1`) to trigger the build workflow
