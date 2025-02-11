@@ -3,7 +3,7 @@ name: Build and Attest
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   release:
@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: tinfoilanalytics/nitro-enclave-build-action@v0.0.1
+      - uses: tinfoilsh/nitro-enclave-build-action@v0.0.1
         with:
           docker-context: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
